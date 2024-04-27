@@ -32,3 +32,13 @@ img {
 }
 
 
+::view-transition-old(image-3),
+::view-transition-new(image-3) {
+  animation: none;
+  mix-blend-mode: normal;
+  height: 100%;
+  overflow: clip;
+}
+::view-transition-new(image-3) {
+  object-fit: cover;
+}
