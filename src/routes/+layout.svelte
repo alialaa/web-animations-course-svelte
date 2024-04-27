@@ -1,6 +1,20 @@
 <script>
+	// @ts-nocheck
+
+	import { onNavigate } from '$app/navigation';
 	import Header from './Header.svelte';
 	import './styles.css';
+
+	onNavigate(async (navigation) => {
+		if (!document.startViewTransition) return;
+		return new Promise(resolve => {
+			document.startViewTransition(async () => {
+				resolve();
+				await navigation.complete;
+			});
+		})
+		
+	})
 </script>
 
 <div class="app">

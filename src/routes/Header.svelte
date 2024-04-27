@@ -38,6 +38,9 @@
 	.header.is-single .header-inner {
 		justify-content: flex-start;
 	}
+	.header .title {
+		view-transition-name: header-title;
+	}
 
 	.header .title h1 {
 		color: #c7d0e9;
