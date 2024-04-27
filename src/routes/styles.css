@@ -31,14 +31,43 @@ img {
   box-sizing: border-box;
 }
 
-
-::view-transition-old(image-3),
-::view-transition-new(image-3) {
-  animation: none;
-  mix-blend-mode: normal;
-  height: 100%;
-  overflow: clip;
+@keyframes slide-from-right {
+  from { transform: translateX(100%); }
 }
-::view-transition-new(image-3) {
-  object-fit: cover;
+@keyframes slide-to-right {
+  to { transform: translateX(100%); }
+}
+
+@keyframes slide-to-left {
+  to { transform: translateX(-100%); }
+}
+
+@keyframes slide-from-left {
+  from { transform: translateX(-100%); }
+}
+
+@media (max-width: 640px) {
+
+  ::view-transition-old(root) {
+    animation: 250ms ease-out both slide-to-left;
+  }
+
+  ::view-transition-new(root) {
+    animation: 250ms ease-out both slide-from-right;
+  }
+  html.back::view-transition-old(root) {
+    animation: 250ms ease-out both slide-to-right;
+  }
+
+  html.back::view-transition-new(root) {
+    animation: 250ms ease-out both slide-from-left;
+  }
+}
+
+@media (prefers-reduced-motion) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
 }

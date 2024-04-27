@@ -84,4 +84,10 @@
 		object-fit: cover;
 		transition: 0.3s;
 	}
+
+	@media (max-width: 640px) {
+		.grid .grid-item img {
+			view-transition-name: none !important;
+		}
+	}
 </style>
