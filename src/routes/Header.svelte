@@ -3,7 +3,6 @@
 	import { page } from '$app/stores';
 	$: isSingleImagePage = $page.url.pathname.startsWith('/image');
 	$: isHomePage = $page.url.pathname === '/';
-
 </script>
 
 <header class="header" class:is-single={isSingleImagePage} class:is-home={isHomePage}>
@@ -37,6 +36,10 @@
 	}
 	.header.is-single .header-inner {
 		justify-content: flex-start;
+	}
+
+	.header .title {
+		view-transition-name: header-title;
 	}
 
 	.header .title h1 {
